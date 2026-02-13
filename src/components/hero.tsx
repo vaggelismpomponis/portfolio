@@ -13,12 +13,12 @@ export function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="space-y-6 max-w-4xl w-full"
+                className="space-y-6 w-full"
             >
-                <div className="flex items-center justify-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium w-fit mx-auto border border-primary/20">
+                <div className="flex items-center justify-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-500 text-xs font-medium w-fit mx-auto border border-emerald-500/20">
                     <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                     </span>
                     Available for new opportunities
                 </div>

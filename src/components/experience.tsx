@@ -25,7 +25,7 @@ export function Experience() {
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         className="ml-8 relative"
                     >
-                        <span className="absolute -left-[41px] top-1 h-4 w-4 rounded-full border border-border bg-background ring-4 ring-background" />
+                        <span className={`absolute -left-[41px] top-1 h-4 w-4 rounded-full border border-border ring-4 ring-background ${index === 0 ? "bg-white" : "bg-background"}`} />
                         <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
                             <h4 className="text-xl font-semibold tracking-tight">{item.role}</h4>
                             <span className="text-sm text-muted-foreground font-mono bg-secondary/50 px-2 py-0.5 rounded">{item.period}</span>

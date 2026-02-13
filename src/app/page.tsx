@@ -10,7 +10,7 @@ export default function Home() {
     <main className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <Hero />
-        <div className="space-y-24 pb-24">
+        <div className="space-y-24">
           <Experience />
           <Projects />
           <Certificates />

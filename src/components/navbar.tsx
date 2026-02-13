@@ -58,10 +58,17 @@ export function Navbar() {
                         <span className="sr-only">Toggle theme</span>
                     </Button>
 
-                    <Button asChild variant="ghost" size="icon" className="rounded-full w-9 h-9 hidden md:flex">
+                    <Button asChild variant="ghost" size="icon" className="rounded-full w-9 h-9 flex">
                         <Link href={content.hero.social.linkedin} target="_blank">
                             <Linkedin className="h-4 w-4" />
                             <span className="sr-only">LinkedIn</span>
+                        </Link>
+                    </Button>
+
+                    <Button asChild variant="ghost" size="icon" className="rounded-full w-9 h-9 flex">
+                        <Link href={content.hero.social.github} target="_blank">
+                            <Github className="h-4 w-4" />
+                            <span className="sr-only">GitHub</span>
                         </Link>
                     </Button>
 

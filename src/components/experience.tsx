@@ -16,7 +16,7 @@ export function Experience() {
                 Experience
             </motion.h3>
 
-            <div className="relative border-l border-border/50 ml-3 space-y-12">
+            <div className="relative border-l-2 border-muted-foreground/30 ml-3 space-y-12">
                 {content.experience.map((item, index) => (
                     <motion.div
                         key={index}
@@ -25,7 +25,7 @@ export function Experience() {
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         className="ml-8 relative"
                     >
-                        <span className={`absolute -left-[41px] top-1 h-4 w-4 rounded-full border border-border ring-4 ring-background ${index === 0 ? "bg-white" : "bg-background"}`} />
+                        <span className={`absolute -left-[41px] top-1 h-4 w-4 rounded-full border-2 border-muted-foreground/30 ring-4 ring-background ${index === 0 ? "bg-foreground" : "bg-background"}`} />
                         <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
                             <h4 className="text-xl font-semibold tracking-tight">{item.role}</h4>
                             <span className="text-sm text-muted-foreground font-mono bg-secondary/50 px-2 py-0.5 rounded">{item.period}</span>

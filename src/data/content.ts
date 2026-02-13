@@ -62,18 +62,30 @@ export const content = {
             description: "Developer Certification representing approximately 300 hours of coursework."
         }
     ],
-    techStack: [
-        "React",
-        "Next.js",
-        "TypeScript",
-        "JavaScript (ES6+)",
-        "PHP",
-        "WordPress",
-        "Supabase",
-        "SQL (PostgreSQL, MySQL)",
-        "HTML5/CSS3",
-        "Git"
-    ],
+    techStack: {
+        frontend: [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "JavaScript (ES6+)",
+            "HTML5/CSS3",
+            "Tailwind CSS",
+            "Framer Motion"
+        ],
+        backend: [
+            "PHP",
+            "WordPress",
+            "Supabase",
+            "SQL (PostgreSQL, MySQL)",
+            "Node.js"
+        ],
+        tools: [
+            "Git",
+            "GitHub",
+            "VS Code",
+            "Postman"
+        ]
+    },
     projects: [
         {
             title: "Online Alumni Management",

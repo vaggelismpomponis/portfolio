@@ -2,29 +2,46 @@
 
 import { content } from "@/data/content"
 import { motion } from "framer-motion"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export function TechStack() {
     return (
-        <section className="py-20 space-y-8">
+        <section className="py-20 space-y-12">
             <motion.h3
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-2xl font-bold tracking-tight"
+                className="text-3xl font-bold tracking-tighter text-center font-mono"
             >
                 Tech Stack
             </motion.h3>
 
-            <div className="flex flex-wrap gap-4">
-                {content.techStack.map((tech, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
+                {Object.entries(content.techStack).map(([category, items], categoryIndex) => (
                     <motion.div
-                        key={tech}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3, delay: index * 0.05 }}
-                        className="px-4 py-2 rounded-full border border-border bg-card/50 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors cursor-default"
+                        key={category}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
+                        className="h-full"
                     >
-                        {tech}
+                        <Card className="h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-colors">
+                            <CardHeader>
+                                <CardTitle className="text-xl font-semibold text-center capitalize font-mono text-muted-foreground/80 lowercase">
+                                    {category}
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent className="flex flex-wrap justify-center gap-3">
+                                {items.map((tech, index) => (
+                                    <span
+                                        key={tech}
+                                        className="px-3 py-1.5 rounded-full border border-border bg-background/50 text-xs font-medium hover:bg-accent hover:text-accent-foreground transition-colors cursor-default"
+                                    >
+                                        {tech}
+                                    </span>
+                                ))}
+                            </CardContent>
+                        </Card>
                     </motion.div>
                 ))}
             </div>

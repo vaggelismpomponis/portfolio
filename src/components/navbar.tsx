@@ -95,48 +95,30 @@ export function Navbar() {
                     initial={{ opacity: 0, scale: 0.95, y: -10 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                    className="absolute top-16 right-4 w-56 p-2 rounded-xl border border-border/40 bg-black/80 backdrop-blur-3xl shadow-2xl flex flex-col gap-1 md:hidden pointer-events-auto"
+                    className="absolute top-16 right-4 w-56 p-2 rounded-xl border border-border/40 bg-background/80 backdrop-blur-3xl shadow-2xl flex flex-col gap-1 md:hidden pointer-events-auto"
                 >
                     <div className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider flex justify-between items-center">
                         <span>Navigation</span>
-                        <span className="text-[10px] bg-primary/20 text-primary px-1.5 py-0.5 rounded border border-primary/20">Menu</span>
+                        <span className="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded border border-primary/20">Menu</span>
                     </div>
-                    {navItems.map((item) => (
+                    {navItems.filter(item => item.name !== "Contact").map((item) => (
                         <Link
                             key={item.name}
                             href={item.href}
-                            className="px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-white/10 transition-colors"
+                            className="px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
                             onClick={() => setIsOpen(false)}
                         >
                             {item.name}
                         </Link>
                     ))}
-                    <div className="h-px bg-white/10 my-1" />
-                    <Link
-                        href={content.hero.social.linkedin}
-                        target="_blank"
-                        className="px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-white/10 transition-colors flex items-center gap-2"
-                        onClick={() => setIsOpen(false)}
-                    >
-                        <Linkedin className="h-4 w-4" />
-                        LinkedIn
-                    </Link>
+                    <div className="h-px bg-border my-1" />
                     <Link
                         href={content.hero.social.email}
-                        className="px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-white/10 transition-colors flex items-center gap-2"
+                        className="px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent transition-colors flex items-center gap-2"
                         onClick={() => setIsOpen(false)}
                     >
                         <Mail className="h-4 w-4" />
                         Contact
-                    </Link>
-                    <Link
-                        href="#"
-                        target="_blank"
-                        className="px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-white/10 transition-colors flex items-center gap-2"
-                        onClick={() => setIsOpen(false)}
-                    >
-                        <Github className="h-4 w-4" />
-                        GitHub
                     </Link>
                 </motion.div>
             )}

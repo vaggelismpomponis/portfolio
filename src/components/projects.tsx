@@ -24,14 +24,14 @@ export function Projects() {
                 A collection of projects where I've had the opportunity to solve interesting problems.
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="flex flex-wrap justify-center gap-6">
                 {content.projects.map((project, index) => (
                     <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="group"
+                        className="group w-full md:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)]"
                     >
                         <Card className="h-full flex flex-col bg-card/40 backdrop-blur-sm border-border/50 hover:border-primary/20 hover:bg-card/60 transition-all duration-300 overflow-hidden group-hover:shadow-lg">
                             <CardHeader>

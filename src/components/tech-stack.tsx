@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export function TechStack() {
     return (
-        <section className="py-10 space-y-12">
+        <section id="tech-stack" className="py-10 space-y-12 scroll-mt-20">
             <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -27,7 +27,7 @@ export function TechStack() {
                     >
                         <Card className="h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-colors">
                             <CardHeader>
-                                <CardTitle className="text-xl font-semibold text-center capitalize font-mono text-muted-foreground/80 lowercase">
+                                <CardTitle className="text-xl font-bold text-center capitalize font-mono text-muted-foreground/80">
                                     {category}
                                 </CardTitle>
                             </CardHeader>

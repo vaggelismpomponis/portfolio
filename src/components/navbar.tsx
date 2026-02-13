@@ -12,7 +12,8 @@ import { content } from "@/data/content"
 const navItems = [
     { name: "About", href: "#about" },
     { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "Certificates", href: "#certificates" },
+    { name: "Tech Stack", href: "#tech-stack" },
 ]
 
 export function Navbar() {
@@ -25,7 +26,7 @@ export function Navbar() {
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className="pointer-events-auto flex items-center gap-2 p-1.5 rounded-full border border-border/40 bg-background/80 backdrop-blur-md shadow-lg"
+                className="pointer-events-auto flex items-center gap-2 p-1.5 rounded-full border border-primary/20 bg-background/90 backdrop-blur-md shadow-2xl dark:shadow-primary/5 dark:bg-muted/40"
             >
                 <Link
                     href="/"
@@ -72,12 +73,6 @@ export function Navbar() {
                         </Link>
                     </Button>
 
-                    <Button asChild size="sm" className="rounded-full h-9 px-4 hidden md:flex">
-                        <Link href={content.hero.social.email}>
-                            Contact Me
-                        </Link>
-                    </Button>
-
                     {/* Mobile Menu Toggle */}
                     <Button
                         variant="ghost"
@@ -101,7 +96,7 @@ export function Navbar() {
                         <span>Navigation</span>
                         <span className="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded border border-primary/20">Menu</span>
                     </div>
-                    {navItems.filter(item => item.name !== "Contact").map((item) => (
+                    {navItems.map((item) => (
                         <Link
                             key={item.name}
                             href={item.href}

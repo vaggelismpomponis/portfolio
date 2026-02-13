@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 export function Certificates() {
     return (
-        <section id="certificates" className="py-20 space-y-12 scroll-mt-20 px-4 max-w-5xl mx-auto">
+        <section id="certificates" className="py-10 space-y-12 scroll-mt-20 px-4 max-w-5xl mx-auto">
             <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 
 export function Hero() {
     return (
-        <section id="about" className="min-h-[80vh] flex flex-col justify-center items-center text-center space-y-8 py-24 sm:py-32 px-4 relative">
+        <section id="about" className="flex flex-col justify-center items-center text-center space-y-10 pt-32 pb-8 sm:py-32 px-4 relative">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

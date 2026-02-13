@@ -10,7 +10,7 @@ import Link from "next/link"
 
 export function Projects() {
     return (
-        <section id="projects" className="py-20 space-y-12 scroll-mt-20 px-4">
+        <section id="projects" className="py-10 space-y-12 scroll-mt-20 px-4">
             <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

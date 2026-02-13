@@ -1,40 +1,96 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vaggelis Bomponis | Portfolio
 
-## Getting Started
+![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-Latest-black?style=for-the-badge&logo=framer&logoColor=white)
 
-First, run the development server:
+A modern, minimalist portfolio website designed for software engineers and developers. Built with a focus on clean aesthetics, smooth animations, and a seamless mobile experience.
+
+## ✨ Features
+
+- **🎨 Modern Aesthetics**: Glassmorphism effects, radial gradients, and a refined dark mode.
+- **📱 Fully Responsive**: optimized for all devices, featuring a custom mobile hamburger menu.
+- **🎭 Animations**: Smooth entrance animations and interactions using Framer Motion.
+- **🌗 Dark/Light Mode**: Integrated theme toggle with persistent state.
+- **📝 Dynamic Content**: All text data (experience, projects, bio) is centralized in `src/data/content.ts` for easy updates.
+- **🧩 Component Library**: Utilizes Shadcn/UI for accessible and customizable components.
+- **🔡 Typography**: Uses `JetBrains Mono` for a developer-centric look.
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 14](https://nextjs.org/) (App Directory)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [Shadcn/UI](https://ui.shadcn.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Deployment**: [Vercel](https://vercel.com) / GitHub Pages
+
+## 🚀 Getting Started
+
+Follow these steps to run the project locally:
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm / yarn / pnpm
+
+### Installation
+
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/vaggelismpomponis/portfolio.git
+    cd portfolio
+    ```
+
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
+
+3.  **Run the development server**:
+    ```bash
+    npm run dev
+    ```
+
+4.  **Open your browser**:
+    Navigate to [http://localhost:3000](http://localhost:3000) to see the application.
+
+## 📂 Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+├── public/          # Static assets (images, favicon)
+├── src/
+│   ├── app/         # Next.js App Router pages
+│   ├── components/  # React components (ui, layouts, sections)
+│   ├── data/        # Content source (content.ts)
+│   └── lib/         # Utilities (cn, theme provider)
+├── tailwind.config  # Tailwind configuration
+└── tsconfig.json    # TypeScript configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✏️ Customization
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Updating the portfolio content is straightforward. You don't need to dig into HTML/JSX.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1.  Open `src/data/content.ts`.
+2.  Modify the objects for `hero`, `experience`, `education`, `techStack`, and `projects`.
+3.  The UI will automatically reflect your changes.
 
-## Learn More
+## 🚢 Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This project is optimized for deployment on Vercel.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1.  Push your code to a GitHub repository.
+2.  Import the project into Vercel.
+3.  Vercel will automatically detect the Next.js settings.
+4.  Click **Deploy**.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📄 License
 
-## Deploy on Vercel
+This project is open source and available under the [MIT License](LICENSE).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# portfolio
->>>>>>> 7b6c9ef0583aa2977c8238a58b8b5bc918b87fb2
+Designed & Built by **[Vaggelis Bomponis](https://github.com/vaggelismpomponis)**

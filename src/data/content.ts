@@ -6,7 +6,7 @@ export const content = {
         description: "Hi there! 👋 I am a Junior Web Developer and Digital Systems student at the University of Thessaly (Expected Feb 2026). With a strong foundation in full-stack development, I specialize in building functional web solutions using React, WordPress, and modern web technologies.",
         social: {
             linkedin: "https://www.linkedin.com/in/vaggelis-bomponis",
-            github: "https://github.com/vaggelis-bomponis",
+            github: "https://github.com/vaggelismpomponis",
             email: "mailto:ebomponis@gmail.com"
         }
     },

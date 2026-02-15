@@ -13,6 +13,10 @@ export function Footer() {
                         <Linkedin className="h-5 w-5" />
                         <span className="sr-only">LinkedIn</span>
                     </Link>
+                    <Link href={content.hero.social.github} target="_blank" className="hover:text-foreground transition-colors">
+                        <Github className="h-5 w-5" />
+                        <span className="sr-only">GitHub</span>
+                    </Link>
                     <Link href={content.hero.social.email} className="hover:text-foreground transition-colors">
                         <Mail className="h-5 w-5" />
                         <span className="sr-only">Email</span>

@@ -2,121 +2,123 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { motion } from "framer-motion"
-import { cn } from "@/lib/utils"
-import { Github, Linkedin, Mail, Menu, Moon, Sun } from "lucide-react"
+import { Github, Linkedin, Menu, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
+import { Logo } from "@/components/logo"
+import { MobileMenu, type NavItem } from "@/components/mobile-menu"
 import { content } from "@/data/content"
 
-const navItems = [
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Certificates", href: "#certificates" },
-    { name: "Tech Stack", href: "#tech-stack" },
+const navItems: NavItem[] = [
+  { name: "Experience", href: "#experience" },
+  { name: "Projects", href: "#projects" },
+  { name: "Certifications", href: "#certificates" },
+  { name: "Tech Stack", href: "#tech-stack" },
 ]
 
 export function Navbar() {
-    const { setTheme, theme } = useTheme()
-    const [isOpen, setIsOpen] = React.useState(false)
+  const { resolvedTheme, setTheme } = useTheme()
+  const [isOpen, setIsOpen] = React.useState(false)
 
-    return (
-        <div className="fixed top-6 inset-x-0 mx-auto z-50 flex justify-center pointer-events-none">
-            <motion.nav
-                initial={{ y: -20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="pointer-events-auto flex items-center gap-2 p-1.5 rounded-full border border-primary/20 bg-background/90 backdrop-blur-md shadow-2xl dark:shadow-primary/5 dark:bg-muted/40"
+  function handleToggleTheme() {
+    setTheme(resolvedTheme === "dark" ? "light" : "dark")
+  }
+
+  const handleCloseMenu = React.useCallback(() => {
+    setIsOpen(false)
+  }, [])
+
+  return (
+    <>
+      <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur-sm">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/"
+            aria-label="Vaggelis Bomponis — Home"
+            className="inline-flex min-h-10 items-center rounded-md px-1 transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <Logo />
+          </Link>
+
+          <nav aria-label="Primary navigation" className="hidden md:flex items-center gap-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-1.5">
+            <Button
+              asChild
+              variant="ghost"
+              size="icon"
+              className="hidden min-h-10 min-w-10 rounded-md md:inline-flex"
             >
-                <Link
-                    href="/"
-                    className="px-4 py-2 rounded-full bg-primary/10 text-primary font-bold text-sm hover:bg-primary/20 transition-colors"
-                >
-                    V.
-                </Link>
+              <Link
+                href={content.hero.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn profile"
+              >
+                <Linkedin className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </Button>
 
-                <div className="hidden sm:flex items-center gap-1 mx-2">
-                    {navItems.map((item) => (
-                        <Link
-                            key={item.name}
-                            href={item.href}
-                            className="px-4 py-2 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-                        >
-                            {item.name}
-                        </Link>
-                    ))}
-                </div>
+            <Button
+              asChild
+              variant="ghost"
+              size="icon"
+              className="hidden min-h-10 min-w-10 rounded-md md:inline-flex"
+            >
+              <Link
+                href={content.hero.social.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub profile"
+              >
+                <Github className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </Button>
 
-                <div className="flex items-center gap-2 pl-2 border-l border-border/50">
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                        className="rounded-full w-9 h-9"
-                        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                    >
-                        <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                        <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                        <span className="sr-only">Toggle theme</span>
-                    </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              className="hidden min-h-10 min-w-10 rounded-md md:inline-flex"
+              onClick={handleToggleTheme}
+              aria-label="Toggle color theme"
+            >
+              <Sun className="hidden h-4 w-4 dark:block" aria-hidden="true" />
+              <Moon className="block h-4 w-4 dark:hidden" aria-hidden="true" />
+            </Button>
 
-                    <Button asChild variant="ghost" size="icon" className="rounded-full w-9 h-9 flex">
-                        <Link href={content.hero.social.linkedin} target="_blank">
-                            <Linkedin className="h-4 w-4" />
-                            <span className="sr-only">LinkedIn</span>
-                        </Link>
-                    </Button>
-
-                    <Button asChild variant="ghost" size="icon" className="rounded-full w-9 h-9 flex">
-                        <Link href={content.hero.social.github} target="_blank">
-                            <Github className="h-4 w-4" />
-                            <span className="sr-only">GitHub</span>
-                        </Link>
-                    </Button>
-
-                    {/* Mobile Menu Toggle */}
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                        className="md:hidden rounded-full w-9 h-9"
-                        onClick={() => setIsOpen(!isOpen)}
-                    >
-                        <Menu className="h-4 w-4" />
-                    </Button>
-                </div>
-            </motion.nav>
-
-            {isOpen && (
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95, y: -10 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                    className="absolute top-16 right-4 w-56 p-2 rounded-xl border border-border/40 bg-background/80 backdrop-blur-3xl shadow-2xl flex flex-col gap-1 md:hidden pointer-events-auto"
-                >
-                    <div className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider flex justify-between items-center">
-                        <span>Navigation</span>
-                        <span className="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded border border-primary/20">Menu</span>
-                    </div>
-                    {navItems.map((item) => (
-                        <Link
-                            key={item.name}
-                            href={item.href}
-                            className="px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            {item.name}
-                        </Link>
-                    ))}
-                    <div className="h-px bg-border my-1" />
-                    <Link
-                        href={content.hero.social.email}
-                        className="px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent transition-colors flex items-center gap-2"
-                        onClick={() => setIsOpen(false)}
-                    >
-                        <Mail className="h-4 w-4" />
-                        Contact
-                    </Link>
-                </motion.div>
-            )}
+            <Button
+              type="button"
+              variant="outline"
+              size="icon"
+              className="min-h-10 min-w-10 rounded-md md:hidden"
+              onClick={() => setIsOpen(true)}
+              aria-label="Open navigation menu"
+              aria-expanded={isOpen}
+              aria-controls="mobile-nav-menu"
+            >
+              <Menu className="h-4 w-4" aria-hidden="true" />
+            </Button>
+          </div>
         </div>
-    )
+      </header>
+
+      <MobileMenu
+        isOpen={isOpen}
+        onClose={handleCloseMenu}
+        navItems={navItems}
+        onToggleTheme={handleToggleTheme}
+      />
+    </>
+  )
 }

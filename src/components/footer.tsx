@@ -1,28 +1,49 @@
-import { content } from "@/data/content"
 import Link from "next/link"
 import { Github, Linkedin, Mail } from "lucide-react"
+import { Logo } from "@/components/logo"
+import { content } from "@/data/content"
 
 export function Footer() {
-    return (
-        <footer className="py-8 border-t border-border/40 mt-12">
-            <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-muted-foreground relative">
-                <p className="w-full text-center order-2 md:order-1">© {new Date().getFullYear()} {content.hero.name}. All rights reserved.</p>
+  return (
+    <footer className="border-t border-border">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <div className="flex items-center gap-3">
+          <Logo showWordmark={false} markClassName="h-5 w-5" />
+          <p>
+            © {new Date().getFullYear()} {content.hero.name}.
+          </p>
+        </div>
 
-                <div className="flex items-center gap-6 md:absolute md:right-0 order-1 md:order-2">
-                    <Link href={content.hero.social.linkedin} target="_blank" className="hover:text-foreground transition-colors">
-                        <Linkedin className="h-5 w-5" />
-                        <span className="sr-only">LinkedIn</span>
-                    </Link>
-                    <Link href={content.hero.social.github} target="_blank" className="hover:text-foreground transition-colors">
-                        <Github className="h-5 w-5" />
-                        <span className="sr-only">GitHub</span>
-                    </Link>
-                    <Link href={content.hero.social.email} className="hover:text-foreground transition-colors">
-                        <Mail className="h-5 w-5" />
-                        <span className="sr-only">Email</span>
-                    </Link>
-                </div>
-            </div>
-        </footer>
-    )
+        <nav aria-label="Social and contact links" className="flex flex-wrap items-center gap-5">
+          <Link
+            href={content.hero.social.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-10 items-center gap-1.5 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
+          >
+            <Linkedin className="h-4 w-4 shrink-0" aria-hidden="true" />
+            <span>LinkedIn</span>
+          </Link>
+
+          <Link
+            href={content.hero.social.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-10 items-center gap-1.5 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
+          >
+            <Github className="h-4 w-4 shrink-0" aria-hidden="true" />
+            <span>GitHub</span>
+          </Link>
+
+          <Link
+            href={content.hero.social.email}
+            className="inline-flex min-h-10 items-center gap-1.5 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
+          >
+            <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
+            <span>Email</span>
+          </Link>
+        </nav>
+      </div>
+    </footer>
+  )
 }

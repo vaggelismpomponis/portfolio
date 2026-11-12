@@ -1,64 +1,37 @@
-"use client"
-
+import { ProjectCard } from "@/components/project-card"
 import { content } from "@/data/content"
-import { motion } from "framer-motion"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { ArrowUpRight } from "lucide-react"
-import Link from "next/link"
 
 export function Projects() {
-    return (
-        <section id="projects" className="py-10 space-y-12 scroll-mt-20 px-4">
-            <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-3xl font-bold tracking-tighter text-center font-mono"
-            >
-                Featured Projects
-            </motion.h3>
+  const [featuredProject, ...otherProjects] = content.projects
 
-            <div className="max-w-2xl mx-auto text-center text-muted-foreground mb-12 font-mono text-sm sm:text-base">
-                A collection of projects where I've had the opportunity to solve interesting problems.
-            </div>
+  return (
+    <section
+      id="projects"
+      className="scroll-mt-20 border-b border-border py-12 md:py-16"
+    >
+      <div className="mb-8">
+        <span className="mb-2 block text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
+          02 / Selected Work
+        </span>
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+          Featured Projects
+        </h2>
+        <p className="mt-2 max-w-[58ch] text-sm text-muted-foreground sm:text-base">
+          Web applications, mobile apps, and client websites built for real-world businesses and university communities.
+        </p>
+      </div>
 
-            <div className="flex flex-wrap justify-center gap-6">
-                {content.projects.map((project, index) => (
-                    <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="group w-full md:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)]"
-                    >
-                        <Card className="h-full flex flex-col bg-card/40 backdrop-blur-sm border-border/50 hover:border-primary/20 hover:bg-card/60 transition-all duration-300 overflow-hidden group-hover:shadow-lg">
-                            <CardHeader>
-                                <CardTitle className="text-xl tracking-tight flex items-center justify-between">
-                                    {project.title}
-                                    <ArrowUpRight className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-                                </CardTitle>
-                                <CardDescription className="line-clamp-3 mt-2 text-muted-foreground/80">
-                                    {project.description}
-                                </CardDescription>
-                            </CardHeader>
-                            <CardContent className="flex-grow flex flex-col justify-end">
-                                <div className="flex flex-wrap gap-2 mt-4">
-                                    {project.tech.map((t) => (
-                                        <Badge key={t} variant="secondary" className="font-mono text-[10px] uppercase tracking-wider bg-secondary/50 text-secondary-foreground/80">
-                                            {t}
-                                        </Badge>
-                                    ))}
-                                </div>
-                            </CardContent>
-                            <Link href={project.link} target="_blank" className="absolute inset-0 z-10">
-                                <span className="sr-only">View Project</span>
-                            </Link>
-                        </Card>
-                    </motion.div>
-                ))}
-            </div>
-        </section>
-    )
+      <div className="space-y-6">
+        {featuredProject && (
+          <ProjectCard project={featuredProject} featured />
+        )}
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {otherProjects.map((project) => (
+            <ProjectCard key={project.title} project={project} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
 }

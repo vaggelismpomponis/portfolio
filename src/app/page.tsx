@@ -7,17 +7,15 @@ import { TechStack } from "@/components/tech-stack"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex min-h-dvh flex-col bg-background text-foreground selection:bg-emerald-500/20 selection:text-foreground">
+      <main className="mx-auto w-full max-w-6xl flex-1 px-4 sm:px-6 lg:px-8">
         <Hero />
-        <div className="space-y-10 md:space-y-24">
-          <Experience />
-          <Projects />
-          <Certificates />
-          <TechStack />
-        </div>
-        <Footer />
-      </div>
-    </main>
+        <Experience />
+        <Projects />
+        <Certificates />
+        <TechStack />
+      </main>
+      <Footer />
+    </div>
   )
 }

@@ -1,59 +1,90 @@
-"use client"
-
-import { content } from "@/data/content"
-import { motion } from "framer-motion"
-import { ArrowDown, ArrowRight, Github, Linkedin, Mail } from "lucide-react"
 import Link from "next/link"
+import { ArrowRight, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { content } from "@/data/content"
 
 export function Hero() {
-    return (
-        <section id="about" className="flex flex-col justify-center items-center text-center space-y-10 pt-32 pb-8 sm:py-32 px-4 relative">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="space-y-6 w-full"
+  return (
+    <section id="about" className="border-b border-border py-12 md:py-20">
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_320px] lg:items-end lg:gap-12">
+        <div className="min-w-0">
+          <div className="flex items-center gap-2.5 text-xs font-mono uppercase tracking-widest text-muted-foreground">
+            <span
+              className="inline-block h-2 w-2 shrink-0 rounded-full bg-emerald-500"
+              aria-hidden="true"
+            />
+            <span>
+              {content.hero.role} · {content.experience[0].company}
+            </span>
+          </div>
+
+          <h1 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-5xl">
+            {content.hero.name}
+          </h1>
+
+          <p className="mt-3 max-w-[54ch] text-lg font-medium leading-snug text-foreground/85 sm:text-xl">
+            {content.hero.headline}
+          </p>
+
+          <p className="mt-5 max-w-[62ch] text-base leading-relaxed text-muted-foreground">
+            {content.hero.description}
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Button
+              asChild
+              size="lg"
+              className="min-h-11 w-full rounded-md px-6 sm:w-auto"
             >
-                <div className="flex items-center justify-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-500 text-xs font-medium w-fit mx-auto border border-emerald-500/20">
-                    <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                    </span>
-                    Available for new opportunities
-                </div>
+              <Link href={content.hero.social.email}>
+                <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <span>Get in Touch</span>
+              </Link>
+            </Button>
 
-                <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-foreground font-mono leading-tight">
-                    Building <span className="text-primary">Applications</span> <br className="hidden sm:block" />
-                    From <span className="text-primary">Idea</span> to <span className="text-primary">Production</span>
-                </h1>
-
-                <p className="max-w-2xl mx-auto text-base sm:text-xl text-muted-foreground leading-relaxed font-mono px-2">
-                    Looking for a Fullstack Engineer who actually loves to ship? Stick around, you might have just found one.
-                </p>
-            </motion.div>
-
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full sm:w-auto"
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="min-h-11 w-full rounded-md px-6 sm:w-auto"
             >
-                <Button asChild size="lg" className="rounded-full h-12 px-8 text-base w-full sm:w-auto font-mono">
-                    <Link href="#projects">
-                        Check My Work
-                    </Link>
-                </Button>
-                <Button asChild variant="secondary" size="lg" className="rounded-full h-12 px-8 text-base w-full sm:w-auto font-mono">
-                    <Link href={content.hero.social.email}>
-                        Contact Me
-                    </Link>
-                </Button>
-            </motion.div>
+              <Link href="#projects">
+                <span>View Selected Work</span>
+                <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+              </Link>
+            </Button>
+          </div>
+        </div>
 
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden sm:block text-muted-foreground">
-                <ArrowDown className="w-5 h-5" />
-            </div>
-        </section>
-    )
+        <dl className="grid grid-cols-1 gap-6 border-t border-border pt-8 sm:grid-cols-3 lg:grid-cols-1 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
+          <div className="min-w-0">
+            <dt className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
+              Current Role
+            </dt>
+            <dd className="mt-1 text-sm font-medium text-foreground">
+              {content.experience[0].role}, {content.experience[0].company}
+            </dd>
+          </div>
+
+          <div className="min-w-0">
+            <dt className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
+              Education
+            </dt>
+            <dd className="mt-1 text-sm font-medium text-foreground">
+              {content.education.degree}, {content.education.university}
+            </dd>
+          </div>
+
+          <div className="min-w-0">
+            <dt className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
+              Core Stack
+            </dt>
+            <dd className="mt-1 text-sm font-medium text-foreground">
+              React, TypeScript, .NET
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+  )
 }

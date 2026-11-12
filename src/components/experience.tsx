@@ -1,42 +1,70 @@
-"use client"
-
 import { content } from "@/data/content"
-import { motion } from "framer-motion"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export function Experience() {
-    return (
-        <section id="experience" className="py-10 space-y-12 scroll-mt-20 max-w-3xl mx-auto">
-            <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-3xl font-bold tracking-tighter text-center font-mono"
-            >
-                Experience
-            </motion.h3>
+  return (
+    <section
+      id="experience"
+      className="scroll-mt-20 border-b border-border py-12 md:py-16"
+    >
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[260px_1fr] lg:gap-12">
+        <div>
+          <span className="mb-2 block text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
+            01 / Background
+          </span>
+          <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+            Experience &amp; Education
+          </h2>
+        </div>
 
-            <div className="relative border-l-2 border-muted-foreground/30 ml-3 space-y-12">
-                {content.experience.map((item, index) => (
-                    <motion.div
-                        key={index}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="ml-8 relative"
-                    >
-                        <span className={`absolute -left-[41px] top-1 h-4 w-4 rounded-full border-2 border-muted-foreground/30 ring-4 ring-background ${index === 0 ? "bg-foreground" : "bg-background"}`} />
-                        <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
-                            <h4 className="text-xl font-semibold tracking-tight">{item.role}</h4>
-                            <span className="text-sm text-muted-foreground font-mono bg-secondary/50 px-2 py-0.5 rounded">{item.period}</span>
-                        </div>
-                        <div className="text-base font-medium text-primary mb-2">{item.company}</div>
-                        <p className="text-muted-foreground leading-relaxed text-sm sm:text-base max-w-2xl">
-                            {item.description}
-                        </p>
-                    </motion.div>
-                ))}
+        <div className="divide-y divide-border">
+          {content.experience.map((item) => (
+            <article
+              key={`${item.company}-${item.period}`}
+              className="grid grid-cols-1 gap-1.5 py-6 first:pt-0 md:grid-cols-[190px_1fr] md:gap-8"
+            >
+              <p className="text-xs font-mono text-muted-foreground sm:text-sm md:pt-1">
+                {item.period}
+              </p>
+
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                  <h3 className="text-base font-semibold text-foreground sm:text-lg">
+                    {item.role}
+                  </h3>
+                  <span className="text-sm text-muted-foreground">·</span>
+                  <span className="text-sm font-medium text-foreground/85">
+                    {item.company}
+                  </span>
+                </div>
+                <p className="mt-2 max-w-[62ch] text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  {item.description}
+                </p>
+              </div>
+            </article>
+          ))}
+
+          <article className="grid grid-cols-1 gap-1.5 pt-6 md:grid-cols-[190px_1fr] md:gap-8">
+            <p className="text-xs font-mono text-muted-foreground sm:text-sm md:pt-1">
+              {content.education.period}
+            </p>
+
+            <div className="min-w-0">
+              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                <h3 className="text-base font-semibold text-foreground sm:text-lg">
+                  {content.education.degree}
+                </h3>
+                <span className="text-sm text-muted-foreground">·</span>
+                <span className="text-sm font-medium text-foreground/85">
+                  {content.education.university}
+                </span>
+              </div>
+              <p className="mt-2 max-w-[62ch] text-sm leading-relaxed text-muted-foreground sm:text-base">
+                Thesis: {content.education.thesis}.
+              </p>
             </div>
-        </section>
-    )
+          </article>
+        </div>
+      </div>
+    </section>
+  )
 }

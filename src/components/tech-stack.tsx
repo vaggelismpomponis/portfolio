@@ -1,50 +1,47 @@
-"use client"
-
 import { content } from "@/data/content"
-import { motion } from "framer-motion"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+
+const categoryLabels: Record<keyof typeof content.techStack, string> = {
+  frontend: "Frontend",
+  backend: "Backend & Data",
+  tools: "Tools & Workflow",
+}
 
 export function TechStack() {
-    return (
-        <section id="tech-stack" className="py-10 space-y-12 scroll-mt-20">
-            <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-3xl font-bold tracking-tighter text-center font-mono"
-            >
-                Tech Stack
-            </motion.h3>
+  const entries = Object.entries(content.techStack) as Array<
+    [keyof typeof content.techStack, string[]]
+  >
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
-                {Object.entries(content.techStack).map(([category, items], categoryIndex) => (
-                    <motion.div
-                        key={category}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-                        className="h-full"
-                    >
-                        <Card className="h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-colors">
-                            <CardHeader>
-                                <CardTitle className="text-xl font-bold text-center capitalize font-mono text-muted-foreground/80">
-                                    {category}
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent className="flex flex-wrap justify-center gap-3">
-                                {items.map((tech, index) => (
-                                    <span
-                                        key={tech}
-                                        className="px-3 py-1.5 rounded-full border border-border bg-background/50 text-xs font-medium hover:bg-accent hover:text-accent-foreground transition-colors cursor-default"
-                                    >
-                                        {tech}
-                                    </span>
-                                ))}
-                            </CardContent>
-                        </Card>
-                    </motion.div>
-                ))}
-            </div>
-        </section>
-    )
+  return (
+    <section id="tech-stack" className="scroll-mt-20 py-12 md:py-16">
+      <div className="mb-8">
+        <span className="mb-2 block text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
+          04 / Capabilities
+        </span>
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+          Tech Stack
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        {entries.map(([category, items]) => (
+          <div key={category} className="min-w-0 border-t border-border pt-4">
+            <h3 className="mb-4 text-xs font-mono uppercase tracking-widest text-muted-foreground">
+              {categoryLabels[category]}
+            </h3>
+
+            <ul className="flex flex-wrap gap-2">
+              {items.map((tech) => (
+                <li
+                  key={tech}
+                  className="rounded-md border border-border bg-card px-2.5 py-1 font-mono text-xs text-foreground/90"
+                >
+                  {tech}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
 }

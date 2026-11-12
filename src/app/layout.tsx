@@ -1,54 +1,61 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import type { Metadata } from "next"
+import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google"
+import "./globals.css"
+import { Navbar } from "@/components/navbar"
+import { ThemeProvider } from "@/components/theme-provider"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-});
+  display: "swap",
+})
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
+  display: "swap",
+})
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
-});
+  display: "swap",
+})
 
 export const metadata: Metadata = {
-  title: "Vaggelis Bomponis | Portfolio",
-  description: "Senior Frontend Engineer & UI/UX Designer. Focusing on modern, minimalist web experiences.",
-};
-
-import { Navbar } from "@/components/navbar";
-
-// ... existing imports
+  title: "Vaggelis Bomponis — Associate Software Engineer",
+  description:
+    "Portfolio of Vaggelis Bomponis, Associate Software Engineer at PwC Greece building web applications and software solutions with React, .NET, and TypeScript.",
+  openGraph: {
+    title: "Vaggelis Bomponis — Associate Software Engineer",
+    description:
+      "Portfolio of Vaggelis Bomponis, Associate Software Engineer at PwC Greece building web applications and software solutions with React, .NET, and TypeScript.",
+    type: "website",
+    locale: "en_US",
+    siteName: "Vaggelis Bomponis",
+  },
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground relative font-sans`}
+        className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground font-sans`}
       >
-        <div className="fixed inset-0 bg-dot-pattern opacity-[0.4] -z-10 pointer-events-none" />
-        <div className="fixed inset-0 -z-20 h-full w-full bg-background [background:radial-gradient(125%_125%_at_50%_10%,transparent_40%,var(--primary)_100%)] opacity-20 dark:opacity-10" />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
           <Navbar />
+          {children}
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

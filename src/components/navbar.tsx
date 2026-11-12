@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Logo } from "@/components/logo"
 import { MobileMenu, type NavItem } from "@/components/mobile-menu"
 import { content } from "@/data/content"
+import { scrollHomeToTop } from "@/lib/utils"
 
 const navItems: NavItem[] = [
   { name: "Experience", href: "#experience" },
@@ -34,8 +35,9 @@ export function Navbar() {
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
           <Link
             href="/"
+            onClick={scrollHomeToTop}
             aria-label="Vaggelis Bomponis — Home"
-            className="inline-flex min-h-10 items-center rounded-md px-1 transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="inline-flex min-h-10 items-center rounded-md px-1 outline-none transition-opacity hover:opacity-80"
           >
             <Logo />
           </Link>
@@ -45,7 +47,7 @@ export function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground outline-none transition-colors hover:bg-muted hover:text-foreground"
               >
                 {item.name}
               </Link>

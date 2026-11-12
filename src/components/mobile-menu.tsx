@@ -6,6 +6,7 @@ import { ArrowRight, Github, Linkedin, Mail, Moon, Sun, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Logo } from "@/components/logo"
 import { content } from "@/data/content"
+import { scrollHomeToTop } from "@/lib/utils"
 
 export interface NavItem {
   name: string
@@ -44,6 +45,11 @@ export function MobileMenu({
     }
   }, [isOpen, onClose])
 
+  function handleLogoClick(event: React.MouseEvent<HTMLAnchorElement>) {
+    onClose()
+    scrollHomeToTop(event)
+  }
+
   if (!isOpen) return null
 
   return (
@@ -57,9 +63,9 @@ export function MobileMenu({
       <div className="flex h-16 shrink-0 items-center justify-between border-b border-border px-4 sm:px-6">
         <Link
           href="/"
-          onClick={onClose}
+          onClick={handleLogoClick}
           aria-label="Vaggelis Bomponis — Home"
-          className="inline-flex min-h-10 items-center rounded-md px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="inline-flex min-h-10 items-center rounded-md px-1 outline-none"
         >
           <Logo />
         </Link>
@@ -88,7 +94,7 @@ export function MobileMenu({
                 <Link
                   href={item.href}
                   onClick={onClose}
-                  className="group flex min-h-14 items-center justify-between gap-4 py-3 text-foreground transition-colors hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="group flex min-h-14 items-center justify-between gap-4 py-3 text-foreground outline-none transition-colors hover:text-emerald-600 dark:hover:text-emerald-400"
                 >
                   <span className="flex items-baseline gap-4">
                     <span className="text-xs font-mono text-muted-foreground">

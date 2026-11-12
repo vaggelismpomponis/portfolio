@@ -8,15 +8,9 @@ export function Hero() {
     <section id="about" className="border-b border-border py-12 md:py-20">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_320px] lg:items-end lg:gap-12">
         <div className="min-w-0">
-          <div className="flex items-center gap-2.5 text-xs font-mono uppercase tracking-widest text-muted-foreground">
-            <span
-              className="inline-block h-2 w-2 shrink-0 rounded-full bg-emerald-500"
-              aria-hidden="true"
-            />
-            <span>
-              {content.hero.role} · {content.experience[0].company}
-            </span>
-          </div>
+          <p className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
+            {content.hero.role} · {content.experience[0].company}
+          </p>
 
           <h1 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-5xl">
             {content.hero.name}
@@ -62,7 +56,7 @@ export function Hero() {
               Current Role
             </dt>
             <dd className="mt-1 text-sm font-medium text-foreground">
-              {content.experience[0].role}, {content.experience[0].company}
+              Software Engineer, {content.experience[0].company}
             </dd>
           </div>
 

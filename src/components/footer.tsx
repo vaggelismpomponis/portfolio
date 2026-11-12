@@ -19,7 +19,7 @@ export function Footer() {
             href={content.hero.social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-10 items-center gap-1.5 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
+            className="inline-flex min-h-10 items-center gap-1.5 rounded-md outline-none transition-colors hover:text-foreground"
           >
             <Linkedin className="h-4 w-4 shrink-0" aria-hidden="true" />
             <span>LinkedIn</span>
@@ -29,7 +29,7 @@ export function Footer() {
             href={content.hero.social.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-10 items-center gap-1.5 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
+            className="inline-flex min-h-10 items-center gap-1.5 rounded-md outline-none transition-colors hover:text-foreground"
           >
             <Github className="h-4 w-4 shrink-0" aria-hidden="true" />
             <span>GitHub</span>
@@ -37,7 +37,7 @@ export function Footer() {
 
           <Link
             href={content.hero.social.email}
-            className="inline-flex min-h-10 items-center gap-1.5 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
+            className="inline-flex min-h-10 items-center gap-1.5 rounded-md outline-none transition-colors hover:text-foreground"
           >
             <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
             <span>Email</span>

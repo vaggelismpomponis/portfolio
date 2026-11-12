@@ -10,7 +10,7 @@ export function Certificates() {
       className="scroll-mt-20 border-b border-border py-12 md:py-16"
     >
       <div className="mb-8">
-        <span className="mb-2 block text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
+        <span className="mb-2 block text-xs font-mono font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
           03 / Credentials
         </span>
         <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">

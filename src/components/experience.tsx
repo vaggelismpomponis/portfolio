@@ -8,7 +8,7 @@ export function Experience() {
     >
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[260px_1fr] lg:gap-12">
         <div>
-          <span className="mb-2 block text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
+          <span className="mb-2 block text-xs font-mono font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">
             01 / Background
           </span>
           <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">

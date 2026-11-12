@@ -13,7 +13,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
   return (
     <article
       className={cn(
-        "group relative overflow-hidden rounded-xl border border-border bg-card transition-colors hover:border-foreground/30",
+        "group relative overflow-hidden rounded-xl border border-border bg-card shadow-xs transition-colors hover:border-foreground/30 dark:shadow-none",
         featured
           ? "grid grid-cols-1 lg:grid-cols-[1.25fr_1fr]"
           : "flex flex-col"
@@ -56,7 +56,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${project.title} source code on GitHub`}
-                  className="relative z-10 inline-flex min-h-10 min-w-10 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="relative z-10 inline-flex min-h-10 min-w-10 items-center justify-center rounded-md text-muted-foreground outline-none transition-colors hover:bg-muted hover:text-foreground"
                 >
                   <Github className="h-4 w-4" aria-hidden="true" />
                 </Link>
@@ -80,7 +80,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-sm after:absolute after:inset-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="rounded-sm outline-none after:absolute after:inset-0"
             >
               {project.title}
             </Link>

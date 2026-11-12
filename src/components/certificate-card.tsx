@@ -44,7 +44,7 @@ export function CertificateCard({
   return (
     <article
       className={cn(
-        "overflow-hidden rounded-xl border border-border bg-card",
+        "overflow-hidden rounded-xl border border-border bg-card shadow-xs dark:shadow-none",
         featured
           ? "grid grid-cols-1 lg:grid-cols-[1.3fr_1fr]"
           : "flex flex-col justify-between p-6"
@@ -94,7 +94,7 @@ export function CertificateCard({
       </div>
 
       {featured && (
-        <dl className="flex flex-col justify-between gap-5 border-t border-border bg-background/60 p-6 lg:border-t-0 lg:border-l">
+        <dl className="flex flex-col justify-between gap-5 border-t border-border bg-muted/45 p-6 dark:bg-background/60 lg:border-t-0 lg:border-l">
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
             <CheckCircle2
               className="h-4 w-4 shrink-0"
